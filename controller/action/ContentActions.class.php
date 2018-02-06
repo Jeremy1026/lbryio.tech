@@ -24,6 +24,12 @@ class ContentActions extends Actions
     VIEW_FOLDER_PRESS = self::CONTENT_DIR . '/' . self::SLUG_PRESS,
     VIEW_FOLDER_CREDIT_REPORTS = self::CONTENT_DIR . '/' . self::SLUG_CREDIT_REPORTS;
 
+  public static function executeHome(): array
+  {
+    Response::enableHttpCache();
+    return ['page/home'];
+  }
+  
   public static function prepareLessonPartial(array $vars): array
   {
     $lesson = $vars['lesson'];

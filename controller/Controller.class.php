@@ -95,8 +95,8 @@ class Controller
 
     $router->get(['/', 'home'], 'ContentActions::executeHome');
 
-    $router->get(['/start', 'start'], 'DeveloperActions::executeStart');
-    $router->get('/start/{step}?', 'DeveloperActions::executeStart');
+    $router->get(['/learn', 'learn'], 'DeveloperActions::executeLearn');
+    $router->get('/learn/{step}?', 'DeveloperActions::executeLearn');
 
     $permanentRedirects = [
     ];
