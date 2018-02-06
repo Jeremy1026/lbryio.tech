@@ -1,0 +1,13 @@
+# This file contains the text of the LBRY website, organized with labels.
+# Text segments are organized hierarchically. For any given language, the user's
+# browser will look at the corresponding language file for the appropriate label
+# and render the segment in the correct language.
+# For example, global.tagline renders as "Play, Share, Earn" if the user's langu
+# age settings are set to English, and the same label renders as "Assista, Compa
+# rtilhe, Ganhe" if the user's settings are set to Portuguese.
+#
+#
+
+title:
+  home: LBRY.tech
+  start: Get Started
