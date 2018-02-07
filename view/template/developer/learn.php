@@ -18,11 +18,12 @@
   <?php if ($stepNum > 0) : ?>
     <?php echo View::render('developer/_lesson' . ucfirst($currentStep) ) ?>
     <a href="<?php echo $stepLabels[$stepNum-1]; ?>"><button id="prevButton">Previous</button></a>
+    <a href="<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton" disabled>Next</button></a>
   <?php else : ?>
     <?php echo View::render('developer/_lesson') ?>
     <a><button disabled>Previous</button></a>
+    <a href="learn/<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton">Next</button></a>
   <?php endif; ?>
-    <a href="<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton" disabled>Next</button></a>
 
   </div>
 
