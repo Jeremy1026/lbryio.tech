@@ -1,5 +1,6 @@
 ---
 title: Introduction
+successMessage: Great work! Let's move on.
 ---
 ## What is this?
 
@@ -19,4 +20,4 @@ Go ahead and try it out, let's check what version of the CLI API we are working 
 
 #### Instructions
 
-In the terminal editor below, enter `version` and see the output.
+In the terminal editor below, enter `./lbrynet-cli version` and see the output.

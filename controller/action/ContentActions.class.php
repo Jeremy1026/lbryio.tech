@@ -33,10 +33,13 @@ class ContentActions extends Actions
   public static function prepareLessonPartial(array $vars): array
   {
     $lesson = $vars['lesson'];
+    $stepNum = $vars['stepNum'];
     $path   = 'lesson/' . $lesson . '.md';
-    list($metadata, $instructionsHtml) = View::parseMarkdown($path);
+    list($metadata, $instructionsHtml, $successMessage) = View::parseMarkdown($path);
     return $vars + $metadata + [
       'instructionsHtml' => $instructionsHtml,
+      'successMessage'   => $successMessage,
+      'stepNum'          => $stepNum
     ];
 
   }
