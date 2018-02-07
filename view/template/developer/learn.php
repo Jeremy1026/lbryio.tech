@@ -7,7 +7,8 @@
 <?php Response::addJsAsset('/js/codemirror/addon/edit/matchbrackets.js') ?>
 <?php Response::setMetaDescription('Be up and running with the LBRY API in just a few minutes.') ?>
 <?php Response::setMetaTitle('LBRY Get Started') ?>
-<?php Response::addJsAsset('/js/terminalEmulator.js') ?>
+<?php Response::addJsAsset('/js/terminalEmulator/editor.js') ?>
+<?php Response::addJsAsset('/js/terminalEmulator/methods.js') ?>
 <?php Response::addJsAsset("/js/lesson/_lesson".ucfirst($currentStep).".js") ?>
 
 <main class="cover-stretch-wrap">

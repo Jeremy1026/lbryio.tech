@@ -4,10 +4,15 @@ $(document).ready(function() {
 
   var methodParams = { "help": "command" };
 
-  var basePrompt = "lbry-daemon$ ./lbrynet-cli ";
+  var basePrompt = "lbry-daemon$ ";
 
   function parseInput(editor) {
-    var input = editor.getRange({line: editor.getCursor().line,ch: basePrompt.length}, {line: editor.getCursor().line,ch: editor.getCursor().ch});
+    var input = editor.getRange({line: editor.getCursor().line,ch: 0}, {line: editor.getCursor().line});
+    if (input.indexOf('./lbrynet-cli') === -1) {
+      return {"isValidMethod": false, "method": method, "response": "You need to enter ./lbrynet-cli to use the API."};
+    }
+
+    input = editor.getRange({line: editor.getCursor().line,ch: basePrompt.length + 14}, {line: editor.getCursor().line,ch: editor.getCursor().ch});
     if (input.indexOf(' ') !== -1) {
       var method = input.substr(0,input.indexOf(' '));
     }
@@ -53,40 +58,67 @@ $(document).ready(function() {
         cm.replaceSelection('\n'+JSON.stringify(result["result"], null, 4 )+'\n'+basePrompt);
       })
       .fail(function() {
-        // alert( "error" );
+        cm.replaceSelection('\nThere was an error processing your input.\n'+basePrompt);
       })
-      .always(function() {
-      });
   }
 
+  function insertHistory(cm, editor, historyLevel) {
+    if (previousInputs[historyLevel]) {
+      var from = {line: editor.getCursor().line, ch: 0};
+      var to = {line: editor.getCursor().line};
+      cm.replaceRange(basePrompt + previousInputs[historyLevel], from, to);
+      return true;
+    }
+    return false;
+  }
+
+  var previousInputs = [];
   var lastLine = -1;
+  var historyLevel = 0;
   var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
     lineNumbers: false,
-    mode: "text/javascript",
-    matchBrackets: true,
+    mode: "shell",
+    matchBrackets: true
   });
 
   editor.setOption("theme", "lesser-dark");
 
   editor.setOption("extraKeys", {
     Enter: function(cm) {
+      previousInputs.push(editor.getRange({line: editor.getCursor().line,ch: basePrompt.length}, {line: editor.getCursor().line,ch: editor.getCursor().ch}));
       inputResults = parseInput(editor);
       if (inputResults["isValidMethod"]) {
-        console.log( runMethod(cm, inputResults["method"], inputResults["params"]) );
-        $('#nextButton').removeAttr('disabled');
+        runMethod(cm, inputResults["method"], inputResults["params"]);
+        if (inputResults["method"] === lessonGoal) {
+          $('#nextButton').removeAttr('disabled');
+          $('#successMessage').show();
+        }
       }
       else {
         var addPrompt = "\n"+inputResults['response']+'\n'+basePrompt;
-        // var addPrompt = '\nERROR: "'+inputResults["method"]+'" is not a valid command.\n'+basePrompt;
         cm.replaceSelection(addPrompt);
       }
+      historyLevel = 0;
       lastLine = editor.getCursor().line;
+    },
+    Up: function(cm) {
+      if (historyLevel < previousInputs.length) {
+        if (insertHistory(cm, editor, historyLevel)) {
+          historyLevel++;
+        }
+      }
+    },
+    Down: function(cm) {
+      if (historyLevel > 0) {
+        historyLevel--;
+        insertHistory(cm, editor, historyLevel)
+      }        
     }
   });
 
   editor.on('beforeChange',function(cm,change) {
-    if (( change.from.line < lastLine) || ( change.from.ch < basePrompt.length)) {
-      change.cancel();
-    }
+    // if (( change.from.line < lastLine) || ( change.from.ch < basePrompt.length)) {
+    //   change.cancel();
+    // }
   });
 });
