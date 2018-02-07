@@ -16,7 +16,7 @@ class DeveloperActions extends Actions
 
     $allSteps    = array_keys($stepLabels);
     $currentStep = $step ?: $allSteps[0];
-    $currentStepLong = $stepLabels[$step] ?: $allSteps[0];
+    $currentStepLong = $stepLabels[$currentStep] ?: $allSteps[0];
     $stepNum = array_search($currentStep, array_keys($stepLabels));
 
     $viewParams = [
