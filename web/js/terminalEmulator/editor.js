@@ -4,7 +4,7 @@ $(document).ready(function() {
     if (inputHistory[historyLevel]) {
       var from = {line: editor.getCursor().line, ch: 0};
       var to = {line: editor.getCursor().line};
-      cm.replaceRange(basePrompt + inputHistory[historyLevel], from, to);
+      cm.replaceRange(basePrompt + inputHistory[historyLevel], from, to, "@ignore");
       return true;
     }
     return false;
@@ -69,8 +69,9 @@ $(document).ready(function() {
   });
 
   editor.on('beforeChange',function(cm,change) {
-    // if (( change.from.line < lastLine) || ( change.from.ch < basePrompt.length)) {
-    //   change.cancel();
-    // }
+    if (change.origin === "@ignore") return;
+    if (( change.from.line < lastLine) || ( change.from.ch < basePrompt.length)) {
+      change.cancel();
+    }
   });
 });
