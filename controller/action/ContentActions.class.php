@@ -35,10 +35,9 @@ class ContentActions extends Actions
     $lesson = $vars['lesson'];
     $stepNum = $vars['stepNum'];
     $path   = 'lesson/' . $lesson . '.md';
-    list($metadata, $instructionsHtml, $successMessage) = View::parseMarkdown($path);
+    list($metadata, $instructionsHtml) = View::parseMarkdown($path);
     return $vars + $metadata + [
       'instructionsHtml' => $instructionsHtml,
-      'successMessage'   => $successMessage,
       'stepNum'          => $stepNum
     ];
 
