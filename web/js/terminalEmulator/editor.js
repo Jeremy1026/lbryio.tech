@@ -45,10 +45,10 @@ $(document).ready(function() {
   function runMethod(cm, method, params) {
     var baseURL = 'http://daemon.lbry.tech/?method=';
     var url = '';
+    // @todo support unnamed params
     if (params) {
-      console.log(params);
-      params = methodParams[method]+"="+params;
-      url = baseURL + method + "&" + params;
+      var paramString = generateParamString(params);
+      url = baseURL + method + "&" + paramString;
     }
     else {
       url = baseURL + method;
@@ -60,6 +60,18 @@ $(document).ready(function() {
       .fail(function() {
         cm.replaceSelection('\nThere was an error processing your input.\n'+basePrompt);
       })
+  }
+
+  function generateParamString(params) {
+    paramsDict = [];
+    params.forEach(function(param, index) {
+      if (param.indexOf('--') !== -1) {
+        param = param.replace('--','');
+        paramsDict.push(param+"="+params[index+1]);
+        params.splice(index+1,1);
+      }
+    });
+    return paramsDict;  
   }
 
   function insertHistory(cm, editor, historyLevel) {
