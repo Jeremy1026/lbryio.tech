@@ -11,7 +11,7 @@ $(document).ready(function() {
   }
 
   function saveCurrentInputToHistory() {
-    inputHistory.push(getLastInput);
+    inputHistory.push(getLastInput());
   }
 
   function getLastInput() {
@@ -26,8 +26,11 @@ $(document).ready(function() {
   var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
     lineNumbers: false,
     mode: "shell",
-    matchBrackets: true
+    matchBrackets: true,
+    autofocus: true
   });
+
+  editor.setCursor({line:0});
 
   editor.setOption("theme", "lesser-dark");
 
@@ -47,7 +50,7 @@ $(document).ready(function() {
         var addPrompt = "\n"+inputResults['response']+'\n'+basePrompt;
         cm.replaceSelection(addPrompt);
       }
-      historyLevel = inputHistory;
+      historyLevel = 0;
       lastLine = editor.getCursor().line;
     },
     Up: function(cm) {
