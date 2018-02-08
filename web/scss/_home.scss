@@ -49,6 +49,8 @@ $height: calc(100vh - 156px);
     background-color: rgba(0,0,0,1.0);
     color: rgba(255,255,255,.9);
     max-width: 600px;
+    border: 2px black solid;
+    @include border-radius(15px);
     .terminal-content {
       .tab {
         padding-left: 2em;

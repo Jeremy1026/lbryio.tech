@@ -27,8 +27,8 @@
     <div class="span12 text-center top-spacer2 spacer2">
         <a href="/learn" class="btn-alt btn-large">Get Started</a><BR>
     </div>
-    <div class="span2"></div>
-    <div class="span2">
+    <div class="span1"></div>
+    <div class="span3">
       <div class="cover cover-light-alt cover-light-alt-grad">
           <div class="content content-light content-tile">
             <h3>For Developers</h3>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="span1"></div>
-    <div class="span2">
+    <div class="span3">
       <div class="cover cover-light-alt cover-light-alt-grad">
           <div class="content content-light content-tile">
             <h3>Why Build for LBRY?</h3>
@@ -47,7 +47,7 @@
           </div>
       </div>
     </div>
-    <div class="span2"></div>
+    <div class="span1"></div>
   </div>
 </main>
 <?php echo View::render('nav/_footer', ['isDark' => false, 'isBordered' => true]) ?>

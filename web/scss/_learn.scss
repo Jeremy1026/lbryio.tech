@@ -41,6 +41,10 @@ $height: calc(100vh - 156px);
         padding: 0 30px;
         float: left;
       }
+      .instructions {
+        overflow-y: scroll;
+        max-height: calc(100vh - 78px);
+      }
       .span8 {
         min-height: calc(100vh - 78px);
         .CodeMirror {
