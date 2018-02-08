@@ -9,7 +9,8 @@
   </div>
   <?php if ($stepNum !== 0) : ?>
   <div class="span12 editor">
-    <?php echo View::render('developer/_lessonTerminal' ) ?>
+    <link rel="stylesheet" href="/css/codemirror/lib/codemirror.css">
+    <textarea id="editor" cols="80">lbry-daemon$ </textarea>
   </div>
   <div id="successMessage" class="span8" style="display:none;">
     <p>
