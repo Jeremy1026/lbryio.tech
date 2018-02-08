@@ -6,18 +6,20 @@
     <p>
       <?php echo $instructionsHtml; ?>
     </p>
-    <div id="successMessage" class="span8" style="display:none;">
+    <div class="goBack top-spacer1 spacer1 text-center">
+      <?php if ($stepNum > 0) : ?>
+        <a href="<?php echo $stepLabels[$stepNum-1]; ?>" class="btn-alt btn-large">Previous Lesson</a>
+      <?php else : ?>
+        <a href="<?php echo $stepLabels[$stepNum+1]; ?>" class="btn-alt btn-large">Continue</a>
+      <?php endif; ?>
+
+    </div>
+    <div id="successMessage" class="successMessage text-center" style="display: none;">
       <p>
         <?php echo $successMessage; ?>
       </p>
+      <div class="top-spacer1"><a href="<?php echo $stepLabels[$stepNum+1]; ?>" class="btn-alt btn-large">Continue</a></div>
     </div>
-    <?php if ($stepNum > 0) : ?>
-      <a href="<?php echo $stepLabels[$stepNum-1]; ?>"><button id="prevButton">Previous</button></a>
-      <a href="<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton" disabled>Next</button></a>
-    <?php else : ?>
-      <a><button disabled>Previous</button></a>
-      <a href="../learn/<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton">Next</button></a>
-    <?php endif; ?>
 
   </div>
   <div class="span8 editor">

@@ -116,6 +116,11 @@ class Response
     static::$assets['css'][$src] = $src;
   }
 
+  public static function getCssAssets()
+  {
+    return static::$assets['css'];
+  }
+
   public static function setGzipResponseContent($gzip = true)
   {
     static::$gzipResponseContent = $gzip;

@@ -79,14 +79,12 @@
         if ((typeof goal["parameter"] === 'undefined') && (goal["parameter"] !== null)) {
           if (goal["method"] === command["method"]) {
             goal["status"] = "complete"
-            console.log("MATCHED COMMAND");
             return;
           }
         }
         else if ((typeof command["params"] !== 'undefined') && (command["params"] !== null)) {
           if ((goal["method"] === command["method"]) && (command["params"].indexOf(goal["parameter"]) !== -1)) {
             goal["status"] = "complete"
-            console.log("MATCHED COMMAND AND PARAM");
             return;
           }          
         }

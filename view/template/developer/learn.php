@@ -2,6 +2,8 @@
 <?php Response::setMetaTitle('LBRY Get Started') ?>
 <?php Response::setMetaDescription('Be up and running with the LBRY API in just a few minutes.') ?>
 <?php Response::addCssAsset('/css/codemirror/lib/codemirror.css') ?>
+<?php Response::addCssAsset('/css/jquery-ui.min.css') ?>
+<?php Response::addJsAsset('/js/jquery-ui.min.js') ?>
 <?php Response::addJsAsset('/js/codemirror/lib/codemirror.js') ?>
 <?php Response::addJsAsset('/js/codemirror/mode/xml/xml.js') ?>
 <?php Response::addJsAsset('/js/codemirror/mode/javascript/javascript.js') ?>
@@ -17,7 +19,7 @@
 <main class="learn cover-dark cover-dark-grad">
 
   <div class="cover-dark cover-dark-grad">
-    <?php echo View::render('content/_lesson', ['lesson' => $currentStep, 'stepNum' => $stepNum]) ?>
+    <?php echo View::render('content/_lesson', ['lesson' => $currentStep, 'steps' => ['stepNum' => $stepNum, 'stepLabels' => $stepLabels]]) ?>
 
   </div>
 

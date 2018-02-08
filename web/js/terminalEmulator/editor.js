@@ -42,8 +42,7 @@ $(document).ready(function() {
         updateLessonStatus(inputResults["method"], inputResults["params"]);
         runMethod(cm, inputResults["method"], inputResults["params"]);
         if (isLessonComplete()) {
-          $('#nextButton').removeAttr('disabled');
-          $('#successMessage').show();
+          $('#successMessage').show("blind", null, 500);
         }
       }
       else {

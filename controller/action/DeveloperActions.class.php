@@ -8,8 +8,7 @@ class DeveloperActions extends Actions
   public static function executeLearn(string $step = null)
   {
     $stepLabels  = [
-      'home'     => 'Home',
-      'intro'    => 'Introduction',
+      'home'     => 'Introduction',
       'help'     => 'Help',
       'commands' => 'Commands'
     ];
