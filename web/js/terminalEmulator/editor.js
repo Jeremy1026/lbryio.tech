@@ -39,7 +39,7 @@ $(document).ready(function() {
       saveCurrentInputToHistory();
       inputResults = parseInput(editor);
       if (inputResults["isValidMethod"]) {
-        updateLessonStatus(inputResults["method"]);
+        updateLessonStatus(inputResults["method"], inputResults["params"]);
         runMethod(cm, inputResults["method"], inputResults["params"]);
         if (isLessonComplete()) {
           $('#nextButton').removeAttr('disabled');

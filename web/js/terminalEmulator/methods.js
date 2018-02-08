@@ -24,6 +24,7 @@
     else {
       paramsArray = null;
     }
+    console.log(method);
     if (checkValidMethod(method) !== -1) {
       return {"isValidMethod": true, "method": method, "params": paramsArray};
     }
@@ -71,13 +72,23 @@
     return paramsDict;  
   }
 
-  function updateLessonStatus(command) {
-    submittedCommands.push(command);
+  function updateLessonStatus(method, params) {
+    submittedCommands.push({method, params});
     submittedCommands.forEach(function(command) {
       lessonGoals.forEach(function(goal) {
-        if (goal["command"] === command) {
-          goal["status"] = "complete"
-          return;
+        if ((typeof goal["parameter"] === 'undefined') && (goal["parameter"] !== null)) {
+          if (goal["method"] === command["method"]) {
+            goal["status"] = "complete"
+            console.log("MATCHED COMMAND");
+            return;
+          }
+        }
+        else if ((typeof command["params"] !== 'undefined') && (command["params"] !== null)) {
+          if ((goal["method"] === command["method"]) && (command["params"].indexOf(goal["parameter"]) !== -1)) {
+            goal["status"] = "complete"
+            console.log("MATCHED COMMAND AND PARAM");
+            return;
+          }          
         }
       });
     });

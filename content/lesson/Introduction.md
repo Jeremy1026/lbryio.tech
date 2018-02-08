@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: The `help` Command 
 successMessage: Great work! Let's move on.
 ---
 ## What is this?
@@ -8,16 +8,11 @@ This guide will help you learn how to interact with LBRY using the LBRY Daemon a
 
 ### You will learn:
 
-* basics of the API
+* How to use the `help` command
 
-### How it works.
-
-We are providing you a terminal and instructions on how to perform various tasks with the LBRY API.
-
-Each lesson you'll learn a new trick to put to use when developing for LBRY.
-
-Go ahead and try it out, let's check what version of the CLI API we are working with.
 
 #### Instructions
 
-In the terminal editor below, enter `./lbrynet-cli version` and see the output.
+* In the command prompt to the right, enter `help` and see the output.
+
+* Try it again, this time include the `--command` parameter to find out more about the `commands` method.
