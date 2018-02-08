@@ -5,11 +5,11 @@
 
   function parseInput(editor) {
     var input = editor.getRange({line: editor.getCursor().line,ch: 0}, {line: editor.getCursor().line});
-    if (input.indexOf('./lbrynet-cli') === -1) {
-      return {"isValidMethod": false, "method": method, "response": "You need to enter ./lbrynet-cli to use the API."};
-    }
+    // if (input.indexOf('./lbrynet-cli') === -1) {
+    //   return {"isValidMethod": false, "method": null, "response": "You need to enter ./lbrynet-cli to use the API."};
+    // }
 
-    input = editor.getRange({line: editor.getCursor().line,ch: basePrompt.length + 14}, {line: editor.getCursor().line,ch: editor.getCursor().ch});
+    input = editor.getRange({line: editor.getCursor().line,ch: basePrompt.length}, {line: editor.getCursor().line,ch: editor.getCursor().ch});
     if (input.indexOf(' ') !== -1) {
       var method = input.substr(0,input.indexOf(' '));
     }
@@ -17,7 +17,7 @@
       var method = input;
     }
     var params = ltrim(input.substr(input.indexOf(method) + method.length));
-    var paramsArray
+    var paramsArray = [];
     if (params.length > 0) {
       paramsArray = params.split(" ");
     }
