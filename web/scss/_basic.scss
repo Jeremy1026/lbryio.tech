@@ -85,6 +85,8 @@ section
 .spacer-half { margin-bottom: $spacing-vertical / 2; }
 .spacer1 { margin-bottom: $spacing-vertical; }
 .spacer2 { margin-bottom: $spacing-vertical * 2; }
+.top-spacer1 { margin-top: $spacing-vertical; }
+.top-spacer2 { margin-top: $spacing-vertical * 2; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .meta { font-size: 0.8em; }

@@ -52,6 +52,17 @@ $info_bg: #d9edf7;
 $info_border: #bce8f1;
 $info_text: #3a87ad;
 
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
 @mixin anchor($color)
 {
   color: $color;
