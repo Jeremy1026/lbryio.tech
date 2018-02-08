@@ -1,3 +1,6 @@
+<?php echo View::render('nav/_header', ['isDark' => false, 'isBordered' => false]) ?>
+<?php Response::setMetaTitle('LBRY Get Started') ?>
+<?php Response::setMetaDescription('Be up and running with the LBRY API in just a few minutes.') ?>
 <?php Response::addCssAsset('/css/codemirror/lib/codemirror.css') ?>
 <?php Response::addJsAsset('/js/codemirror/lib/codemirror.js') ?>
 <?php Response::addJsAsset('/js/codemirror/mode/xml/xml.js') ?>
@@ -5,24 +8,16 @@
 <?php Response::addJsAsset('/js/codemirror/mode/css/css.js') ?>
 <?php Response::addJsAsset('/js/codemirror/mode/htmlmixed/htmlmixed.js') ?>
 <?php Response::addJsAsset('/js/codemirror/addon/edit/matchbrackets.js') ?>
-<?php Response::setMetaDescription('Be up and running with the LBRY API in just a few minutes.') ?>
-<?php Response::setMetaTitle('LBRY Get Started') ?>
 <?php Response::addJsAsset('/js/terminalEmulator/editor.js') ?>
 <?php Response::addJsAsset('/js/terminalEmulator/methods.js') ?>
+<?php if ($stepNum > 0) : ?>
 <?php Response::addJsAsset("/js/lesson/_lesson".ucfirst($currentStep).".js") ?>
+<?php endif; ?>
 
-<main class="cover-stretch-wrap">
+<main class="learn cover-dark cover-dark-grad">
 
-  <div class="cover cover-dark cover-dark-grad">
+  <div class="cover-dark cover-dark-grad">
     <?php echo View::render('content/_lesson', ['lesson' => $currentStep, 'stepNum' => $stepNum]) ?>
-
-  <?php if ($stepNum > 0) : ?>
-    <a href="<?php echo $stepLabels[$stepNum-1]; ?>"><button id="prevButton">Previous</button></a>
-    <a href="<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton" disabled>Next</button></a>
-  <?php else : ?>
-    <a><button disabled>Previous</button></a>
-    <a href="../learn/<?php echo $stepLabels[$stepNum+1]; ?>"><button id="nextButton">Next</button></a>
-  <?php endif; ?>
 
   </div>
 

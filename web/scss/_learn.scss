@@ -1,0 +1,103 @@
+@import "global";
+
+$height: calc(100vh - 156px);
+@media(min-width: 1200px) and (min-height: 600px){
+  .learn {
+    min-height: calc(100vh - 78px);
+    .cover-dark {
+      // .column {
+        .span4, .span8 {
+        }
+        .span8 {
+        }
+      // }
+    }
+    @include clearfix();
+  }
+}
+
+@media(max-width: 799px) { 
+  .learn {
+    min-height: calc(100vh - 78px);
+    .cover-dark {
+      // .column {
+        .span4, .span8 {
+        }
+        .span8 {
+          padding-top: 20px !important;
+          padding-right: 30px !important;
+        }
+      // }
+    }
+  }
+}
+
+.learn {
+  .cover-dark {
+    min-height: calc(100vh - 78px);
+    // .column {
+      // min-height: 100%;
+      .span4, .span8 {
+        padding: 0 30px;
+        float: left;
+      }
+      .span8 {
+        min-height: calc(100vh - 78px);
+        .CodeMirror {
+          min-height: calc(100vh - 78px);
+        }
+        padding-right: 0;
+      }
+    // }
+  }
+}
+
+// .home__title {
+//   h1 {
+//     margin: 0 !important;
+//   }
+// }
+
+// .home__media {
+//   text-align: center;
+//   > img {
+//     box-shadow: 0 0 10px rgba(0,0,0,0.8);
+//     max-height: 100%;
+//   }
+// }
+
+// .home__copy {
+//   > div {
+//     padding: 20px;
+//     max-width: $max-text-width;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+
+//   .terminal {
+//     background-color: rgba(0,0,0,1.0);
+//     color: rgba(255,255,255,.9);
+//     max-width: 600px;
+//     .terminal-content {
+//       .tab {
+//         padding-left: 2em;
+//       }
+//       .last-line {
+//         &::after { 
+//           animation: blink-animation 1s steps(5, start) infinite;
+//           -webkit-animation: blink-animation 1s steps(5, start) infinite;
+//           content: "|";
+//           padding-left: .5em;
+//         }
+//       }
+//     }
+//     pre {
+//       background-color: rgba(0,0,0,1.0);
+//       color: rgba(255,255,255,.9);
+//     }
+//   }
+// }
+
+// .home__bottom {
+//   padding-bottom: $spacing-vertical;
+// }
