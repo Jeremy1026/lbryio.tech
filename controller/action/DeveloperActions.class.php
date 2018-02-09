@@ -21,7 +21,7 @@ class DeveloperActions extends Actions
       'course'      => $course
     ];
 
-    return ['developer/learn', $viewParams];
+    return ['developer/lesson', $viewParams];
   }
 
   protected static function getLessonsForCourse($course) {
