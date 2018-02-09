@@ -33,6 +33,7 @@ class ContentActions extends Actions
   public static function prepareLessonPartial(array $vars): array
   {
     $lesson = $vars['lesson'];
+    $course = $vars['course'];
     $stepNum = $vars['steps']['stepNum'];
     $stepLabels = $vars['steps']['stepLabels'];
     $path   = 'lesson/' . $lesson . '.md';
@@ -40,9 +41,21 @@ class ContentActions extends Actions
     return $vars + $metadata + [
       'instructionsHtml' => $instructionsHtml,
       'stepNum'          => $stepNum,
-      'stepLabels'       => $stepLabels
+      'stepLabels'       => $stepLabels,
+      'course'           => $course
     ];
 
+  }
+
+  public static function prepareCoursesPartial(array $vars): array
+  {
+    $course = $vars['course'];
+    $path   = 'courses/' . ucfirst($course) . '.md';
+    list($metadata, $description) = View::parseMarkdown($path);
+    return $vars + $metadata + [
+      'course'      => $course,
+      'description' => $description
+    ];
   }
 
 }

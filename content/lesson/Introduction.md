@@ -17,4 +17,4 @@ title: Introduction
 
 ### Try it out:
 
-Go ahead and take the command prompt for a spin. When you're ready, click the button below to go to your first task.
+Go ahead and take the command prompt for a spin. When you're ready to move on, click the button below to go to your first task.

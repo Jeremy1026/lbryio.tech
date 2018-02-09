@@ -19,8 +19,7 @@
 <main class="learn cover-dark cover-dark-grad">
 
   <div class="cover-dark cover-dark-grad">
-    <?php echo View::render('content/_lesson', ['lesson' => $currentStep, 'steps' => ['stepNum' => $stepNum, 'stepLabels' => $stepLabels]]) ?>
-
+    <?php echo View::render('content/_lesson', ['lesson' => $currentStep, 'course' => $course, 'steps' => ['stepNum' => $stepNum, 'stepLabels' => $stepLabels]]) ?>
   </div>
 
 </main>

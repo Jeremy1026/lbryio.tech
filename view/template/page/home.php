@@ -25,7 +25,7 @@
   </div>
   <div class="column-fluid cover-dark-grad cover-dark home__bottom">
     <div class="span12 text-center top-spacer2 spacer2">
-        <a href="/learn" class="btn-alt btn-large">Get Started</a><BR>
+        <a href="/courses" class="btn-alt btn-large">Get Started</a><BR>
     </div>
     <div class="span1"></div>
     <div class="span3">
