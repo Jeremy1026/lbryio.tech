@@ -7,9 +7,9 @@
   </p>
   <div class="goBack top-spacer1 spacer1 text-center">
     <?php if ($stepNum > 0) : ?>
-      <a href="<?php echo $stepLabels[$stepNum-1]; ?>" class="btn-alt btn-large">Previous Lesson</a>
+      <a href="/courses/<?php echo $course; ?>/<?php echo $stepLabels[$stepNum-1]; ?>" class="btn-alt btn-large">Previous Lesson</a>
     <?php else : ?>
-      <a href="<?php echo $stepLabels[$stepNum+1]; ?>" class="btn-alt btn-large">Continue</a>
+      <a href="/courses/<?php echo $course; ?>/<?php echo $stepLabels[$stepNum+1]; ?>" class="btn-alt btn-large">Continue</a>
     <?php endif; ?>
 
   </div>
